@@ -15,7 +15,15 @@ func ls() *cobra.Command {
 			c := config.New()
 
 			apps := apps.All(c.AppPath)
-			fmt.Println(apps)
+			var appNames, lineFeed string
+			for _, app := range apps {
+				appNames = appNames + func() string{
+					line := lineFeed + app.Name
+					lineFeed = "\n"
+					return line
+				}()
+			}
+			fmt.Println(appNames)
 			return nil
 		},
 	}

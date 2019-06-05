@@ -2,6 +2,7 @@ package apps
 
 import (
 	"io/ioutil"
+	"log"
 	"path/filepath"
 	"strings"
 )
@@ -13,6 +14,7 @@ type App struct {
 	Path string
 }
 
+var suffix = ".app"
 
 //func (a *App) First() *App {
 //
@@ -25,27 +27,23 @@ func All(dir string) []App {
 func getApplications(dir string) (apps []App) {
 	files, err := ioutil.ReadDir(dir)
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 
 	for _, file := range files {
-		a := &App{
-			Name: file.Name(),
-			Path :filepath.Join(dir, file.Name()),
-		}
-
-		//  exlusion dotfiles
-		if strings.HasPrefix(a.Name, ".") {
+		name := file.Name()
+		if strings.HasPrefix(name, ".") {
 			continue
 		}
 
-		// if dir
-		if file.IsDir() && !strings.HasSuffix(a.Name, ".app") {
-			apps = append(apps, getApplications(filepath.Join(dir, a.Name))...)
+		if !strings.HasSuffix(name, suffix) {
 			continue
 		}
 
-
+		apps = append(apps, App{
+			Name: strings.TrimSuffix(name, suffix),
+			Path: filepath.Join(dir, name),
+		})
 	}
 
 	return apps
