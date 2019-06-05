@@ -10,6 +10,7 @@ import (
 func NewLaunCommand(wd string) *cobra.Command {
 	cobra.OnInitialize()
 	cmd := laun.Exec()
+	cmd = laun.Inject(cmd)
 	return cmd
 }
 
