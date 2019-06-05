@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/YukihiroTaniguchi/laun/internal/apps/cmd"
+	"github.com/YukihiroTaniguchi/laun/internal/cmd"
 	"os"
 
 )

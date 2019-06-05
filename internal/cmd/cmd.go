@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"github.com/YukihiroTaniguchi/laun/internal/apps/laun"
+	"github.com/YukihiroTaniguchi/laun/internal/laun"
 	"github.com/spf13/cobra"
 )
 
