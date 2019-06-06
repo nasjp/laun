@@ -7,6 +7,8 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var format = "\x1b[32m%s\x1b[0m" // 32m => green
+
 func ls() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "ls",
@@ -23,7 +25,7 @@ func ls() *cobra.Command {
 					return line
 				}()
 			}
-			fmt.Println(appNames)
+			fmt.Printf(format + "\n", appNames)
 			return nil
 		},
 	}
