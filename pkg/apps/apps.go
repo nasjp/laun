@@ -49,6 +49,7 @@ func (a *App) First() *App {
 }
 
 func (a *App) Open() {
+	// TODO: エラー処理を修正する
 	var err error
 	if len(a.Target) > 0 {
 		err = exec.Command("open", a.Target, "-a", a.Name).Start()
