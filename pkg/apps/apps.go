@@ -49,12 +49,14 @@ func (a *App) First() *App {
 }
 
 func (a *App) Open() {
-	out, err := exec.Command("open", a.Target, "-a", a.Name).Output()
-		if err != nil {
-		log.Fatal(err)
+	var err error
+	if len(a.Target) > 0 {
+		err = exec.Command("open", a.Target, "-a", a.Name).Start()
+	}else{
+		err = exec.Command("open", "-a", a.Name).Start()
 	}
-	if len(out) > 0  {
-		fmt.Printf("%s\n", out)
+	if err != nil {
+		log.Fatal(err)
 	}
 }
 
