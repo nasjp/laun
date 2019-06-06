@@ -5,15 +5,16 @@ import (
 	"testing"
 )
 
-func TestGetApplications(t *testing.T) {
+
+func TestAll(t *testing.T) {
 	var dirs = []string{
 		"/Applications",
 	}
 	for _, dir := range dirs {
-		apps := getApplications(dir);
+		apps := All(dir);
 		for _, a := range apps {
 			if !strings.HasSuffix(a.Path, ".app") {
-				t.Errorf("getApplications(%s) = %s", dir, a.Name)
+				t.Errorf("All(%s) = %s", dir, a.Name)
 			}
 		}
 	}

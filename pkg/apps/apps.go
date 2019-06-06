@@ -20,11 +20,7 @@ var suffix = ".app"
 //
 //}
 
-func All(dir string) []App {
-	return getApplications(dir)
-}
-
-func getApplications(dir string) (apps []App) {
+func All(dir string) (apps []App) {
 	files, err := ioutil.ReadDir(dir)
 	if err != nil {
 		log.Fatal(err)
