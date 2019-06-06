@@ -17,8 +17,7 @@ func ls() *cobra.Command {
 		Short: "show application list",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			c := config.New()
-			a := apps.NewApp()
-			a.PrintList(a.All(c.AppPath))
+			apps.PrintList(apps.All(c.AppPath))
 			return nil
 		},
 	}

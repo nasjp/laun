@@ -8,38 +8,50 @@ import (
 	"strings"
 )
 
-type App struct {
-	Partial string
-	Target string
-	Name string
-	Path string
-}
-
-
 var (
 	suffix = ".app"
 	format = "\x1b[32m%s\x1b[0m" // 32m => green
 )
 
-type AppInterface struct {
+type App struct {
+	Partial string
+	Target string
+	Path string
+	Name string
 }
 
-type appInterface interface {
-	All(string) []App
-	PrintList([]App)
-
+func New(partial string, target string, path string) *App {
+	return &App{
+		Partial : partial,
+		Target : target,
+		Path : path,
+	}
 }
 
-func NewApp() *AppInterface {
-	return &AppInterface{}
+
+
+
+type app interface {
+	First() *App
+}
+
+func (a *App) First() *App {
+	files, err := ioutil.ReadDir(a.Path)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	for _, file := range files {
+		if name:= file.Name(); strings.Contains(name, a.Partial) {
+			a.Name = name
+			break
+		}
+	}
+	return a
 }
 
 
-//func (a *App) First() *App {
-//
-//}
-
-func (*AppInterface) All(dir string) (apps []App) {
+func All(dir string) (apps []App) {
 	files, err := ioutil.ReadDir(dir)
 	if err != nil {
 		log.Fatal(err)
@@ -64,7 +76,7 @@ func (*AppInterface) All(dir string) (apps []App) {
 	return apps
 }
 
-func (*AppInterface) PrintList(apps []App) {
+func PrintList(apps []App) {
 	var list, lineFeed string
 	for _, app := range apps {
 		list = list + func() string{
