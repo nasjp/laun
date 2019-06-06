@@ -20,3 +20,11 @@ func TestAll(t *testing.T) {
 		}
 	}
 }
+
+func TestPrintList(t *testing.T) {
+	apps := []App{
+		{Name: "a.app"},
+	}
+		a := NewApp()
+		a.PrintList(apps)
+}
