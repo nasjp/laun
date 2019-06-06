@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"os/exec"
 	"path/filepath"
 	"strings"
 )
@@ -20,19 +21,16 @@ type App struct {
 	Name string
 }
 
-func New(partial string, target string, path string) *App {
+func New(partisal string, path string) *App {
 	return &App{
-		Partial : partial,
-		Target : target,
+		Partial:partisal,
 		Path : path,
 	}
 }
 
-
-
-
 type app interface {
 	First() *App
+	Open(*App)
 }
 
 func (a *App) First() *App {
@@ -42,7 +40,7 @@ func (a *App) First() *App {
 	}
 
 	for _, file := range files {
-		if name:= file.Name(); strings.Contains(name, a.Partial) {
+		if name:= strings.ToLower(file.Name()); strings.Contains(name, a.Partial) {
 			a.Name = name
 			break
 		}
@@ -50,6 +48,15 @@ func (a *App) First() *App {
 	return a
 }
 
+func (a *App) Open() {
+	out, err := exec.Command("open", a.Target, "-a", a.Name).Output()
+		if err != nil {
+		log.Fatal(err)
+	}
+	if len(out) > 0  {
+		fmt.Printf("%s\n", out)
+	}
+}
 
 func All(dir string) (apps []App) {
 	files, err := ioutil.ReadDir(dir)
