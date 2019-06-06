@@ -10,11 +10,12 @@ func TestAll(t *testing.T) {
 	var dirs = []string{
 		"/Applications",
 	}
+	a := NewApp()
 	for _, dir := range dirs {
-		apps := All(dir);
-		for _, a := range apps {
-			if !strings.HasSuffix(a.Path, ".app") {
-				t.Errorf("All(%s) = %s", dir, a.Name)
+		apps := a.All(dir);
+		for _, app := range apps {
+			if !strings.HasSuffix(app.Path, ".app") {
+				t.Errorf("All(%s) = %s", dir, app.Name)
 			}
 		}
 	}
