@@ -5,7 +5,7 @@
 ### Installing(requires Go 1.12)
 ```shell
 $ export GO111MODULE=auto
-$ go get -u github.com/YukihiroTaniguchi/laun/cmd/laun
+$ go get -u github.com/NasSilverBullet/laun/cmd/laun
 ```
 
 ### Usage
