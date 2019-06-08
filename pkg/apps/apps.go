@@ -29,11 +29,6 @@ func New(partisal string, path string) *App {
 	}
 }
 
-type app interface {
-	First() *App
-	Open()
-}
-
 func (a *App) First() (*App, error) {
 	files, err := ioutil.ReadDir(a.Path)
 	if err != nil {
