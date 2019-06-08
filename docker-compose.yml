@@ -5,6 +5,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: golang:1.11
+    image: golang:1.12
     volumes:
       - ./:/go/src/github.com/NasSilverBullet/pom
