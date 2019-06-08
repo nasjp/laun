@@ -13,13 +13,22 @@ func open(args []string) error {
 	if len(args) <= 0 {
 		return errors.New(fmt.Sprintf("requires at least 1 arg(s), only received %d", len(args)))
 	}
-	c := config.New()
+	c, err := config.New()
+	if err != nil {
+		return err
+	}
 	for _, arg := range args {
 		lArg := strings.ToLower(arg)
 		a := apps.New(lArg, c.AppPath)
 		a.Target = target
-		a = a.First()
-		a.Open()
+		a, err = a.First()
+		if err != nil {
+			return err
+		}
+		err = a.Open()
+		if err != nil {
+			return err
+		}
 	}
-	return nil
+	return err
 }

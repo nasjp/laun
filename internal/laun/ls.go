@@ -6,7 +6,11 @@ import (
 )
 
 func list() error {
-	c := config.New()
-	apps.PrintList(apps.All(c.AppPath))
-	return nil
+	c, err := config.New()
+	appsName, err := apps.All(c.AppPath)
+	if err != nil {
+		return err
+	}
+	apps.PrintList(appsName)
+	return err
 }

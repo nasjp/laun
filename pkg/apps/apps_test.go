@@ -5,24 +5,19 @@ import (
 	"testing"
 )
 
-
 func TestAll(t *testing.T) {
 	var dirs = []string{
 		"/Applications",
 	}
 	for _, dir := range dirs {
-		apps := All(dir);
+		apps, err := All(dir)
+		if err != nil {
+			t.Fatal(err)
+		}
 		for _, app := range apps {
 			if !strings.HasSuffix(app.Path, ".app") {
 				t.Errorf("All(%s) = %s", dir, app.Name)
 			}
 		}
 	}
-}
-
-func TestPrintList(t *testing.T) {
-	apps := []App{
-		{Name: "a.app"},
-	}
-	PrintList(apps)
 }

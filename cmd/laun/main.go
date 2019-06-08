@@ -21,6 +21,5 @@ func run() error {
 	}
 
 	cmd := cmd.NewLaunCommand(wd)
-
 	return cmd.Execute()
 }
