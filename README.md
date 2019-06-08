@@ -22,8 +22,7 @@ $ laun -l                // You can check your applicatin list
 
 ### Flags
 ```shell
-Flags:
-  -h, --help            help for laun
-  -l, --list            show application list
-  -t, --target string   select target file or directory
+-h, --help            help for laun
+-l, --list            show application list
+-t, --target string   select target file or directory
 ```
