@@ -1,4 +1,4 @@
-FROM golang:1.12
+FROM golang:1.11.4
 
 WORKDIR /go/src/github.com/NasSilverBullet/pom
 COPY . .
