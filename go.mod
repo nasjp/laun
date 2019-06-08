@@ -1,4 +1,4 @@
-module github.com/YukihiroTaniguchi/laun
+module github.com/NasSilverBullet/laun
 
 require (
 	cloud.google.com/go v0.40.0 // indirect
