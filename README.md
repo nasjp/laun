@@ -19,7 +19,6 @@ $ laun -l                // You can check your applicatin list
 ````
 
 
-```
 
 ### Flags
 ```shell
