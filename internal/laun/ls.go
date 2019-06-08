@@ -1,8 +1,8 @@
 package laun
 
 import (
-	"github.com/YukihiroTaniguchi/laun/pkg/apps"
-	"github.com/YukihiroTaniguchi/laun/pkg/config"
+	"github.com/NasSilverBullet/laun/pkg/apps"
+	"github.com/NasSilverBullet/laun/pkg/config"
 )
 
 func list() error {

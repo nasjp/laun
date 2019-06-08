@@ -2,12 +2,10 @@ package main
 
 import (
 	"fmt"
-	"github.com/YukihiroTaniguchi/laun/internal/cmd"
 	"os"
 
+	"github.com/NasSilverBullet/laun/internal/cmd"
 )
-
-
 
 func main() {
 	if err := run(); err != nil {

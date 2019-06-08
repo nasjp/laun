@@ -1,11 +1,9 @@
 package cmd
 
 import (
-	"github.com/YukihiroTaniguchi/laun/internal/laun"
+	"github.com/NasSilverBullet/laun/internal/laun"
 	"github.com/spf13/cobra"
 )
-
-
 
 func NewLaunCommand(wd string) *cobra.Command {
 	cobra.OnInitialize()
@@ -13,4 +11,3 @@ func NewLaunCommand(wd string) *cobra.Command {
 	cmd = laun.Inject(cmd)
 	return cmd
 }
-
