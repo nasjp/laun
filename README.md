@@ -1,8 +1,8 @@
 # laun
 
-## laun is applicatin launcher on cli (WIP)
+## laun is a simple applicatin launcher on cli
 
-### Installing(requires Go 1.12)
+### Installing(requires Go 1.11.4)
 ```shell
 $ export GO111MODULE=auto
 $ go get -u github.com/NasSilverBullet/laun/cmd/laun
@@ -20,7 +20,7 @@ $ laun [apps] [flags]
 -t, --target string   select target file or directory
 ```
 
-### Usage
+### You can do this for example with the following command
 ```shell
 $ laun Docker
 $ laun docker            // You can use lower case
