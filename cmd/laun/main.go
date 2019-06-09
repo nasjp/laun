@@ -15,11 +15,6 @@ func main() {
 }
 
 func run() error {
-	wd, err := os.Getwd()
-	if err != nil {
-		return err
-	}
-
-	cmd := cmd.NewLaunCommand(wd)
-	return cmd.Execute()
+	c := cmd.NewLaunCommand()
+	return c.Execute()
 }

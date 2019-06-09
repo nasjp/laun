@@ -29,5 +29,6 @@ func Exec() *cobra.Command {
 			return err
 		},
 	}
+	cmd = injectFlags(cmd)
 	return cmd
 }
