@@ -1,26 +1,26 @@
-# laun
+![jft](logo/laun.jpg)
 
-## laun is a simple applicatin launcher on cli
+# laun is a simple applicatin launcher on cli
 
-### Installing(requires Go 1.11.4)
+## Installing(requires Go 1.11.4)
 ```shell
 $ export GO111MODULE=auto
 $ go get -u github.com/NasSilverBullet/laun/cmd/laun
 ```
 
-### Usage
+## Usage
 ```shell
 $ laun [apps] [flags]
 ```
 
-### Flags
+## Flags
 ```shell
 -h, --help            help for laun
 -l, --list            show application list
 -t, --target string   select target file or directory
 ```
 
-### You can do this for example with the following command
+## You can do this for example with the following command
 ```shell
 $ laun Docker
 $ laun docker            // You can use lower case
